@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Manual Attendance</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+background:#f3f4f6;
+
+}
+
+.box{
+
+width:400px;
+margin:50px auto;
+
+padding:20px;
+
+background:white;
+
+border-radius:10px;
+
+box-shadow:0 0 10px gray;
+
+}
+
+input,select{
+
+width:100%;
+padding:10px;
+margin-top:10px;
+
+box-sizing:border-box;
+
+}
+
+button{
+
+width:100%;
+
+padding:10px;
+
+margin-top:20px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="box">
+
+<h2>Manual Attendance</h2>
+
+
+<input id="emp" placeholder="Employee Name">
+
+
+<input type="date" id="date">
+
+
+<select id="status">
+
+<option>Present</option>
+
+<option>Absent</option>
+
+</select>
+
+
+
+<button onclick="saveAttendance()">
+
+Save
+
+</button>
+
+
+<p id="msg"></p>
+
+
+</div>
+
+
+
+<script>
+
+
+function saveAttendance(){
+
+
+let emp=document.getElementById("emp").value;
+
+let date=document.getElementById("date").value;
+
+let status=document.getElementById("status").value;
+
+
+
+let data=JSON.parse(
+
+localStorage.getItem("manual")
+
+)||[];
+
+
+
+data.push({
+
+emp,
+
+date,
+
+status
+
+});
+
+
+
+localStorage.setItem(
+
+"manual",
+
+JSON.stringify(data)
+
+);
+
+
+
+document.getElementById("msg").innerHTML=
+
+"✅ Attendance Saved";
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

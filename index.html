@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Attendance System</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Attendance System</h1>
+
+
+<input type="text"
+id="name"
+placeholder="Employee Name">
+
+
+
+<video id="camera" autoplay playsinline></video>
+
+
+<canvas id="canvas"></canvas>
+
+
+<img id="preview">
+
+
+
+<div class="btns">
+
+<button onclick="capturePhoto()">
+
+Take Selfie
+
+</button>
+
+</div>
+
+
+
+<div class="btns">
+
+<button onclick="checkIn()">
+
+Check In
+
+</button>
+
+
+<button onclick="checkOut()">
+
+Check Out
+
+</button>
+
+</div>
+
+
+
+
+<h3>
+
+Worked Hours :
+
+<span id="hours">
+
+0
+
+</span>
+
+</h3>
+
+
+
+<h3>
+
+OT Hours :
+
+<span id="ot">
+
+0
+
+</span>
+
+</h3>
+
+
+
+
+<h3>
+
+OT Pay :
+
+₹<span id="otpay">
+
+0
+
+</span>
+
+</h3>
+
+
+
+
+<h3>
+
+Today's Earning :
+
+₹<span id="salary">
+
+0
+
+</span>
+
+</h3>
+
+
+
+<p id="result"></p>
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

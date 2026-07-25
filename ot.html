@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>OT Calculator</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+background:#f4f6f9;
+
+}
+
+.box{
+
+width:450px;
+
+margin:50px auto;
+
+padding:25px;
+
+background:white;
+
+border-radius:10px;
+
+box-shadow:0 0 10px lightgray;
+
+}
+
+input,select{
+
+width:100%;
+
+padding:10px;
+
+margin-top:10px;
+
+box-sizing:border-box;
+
+}
+
+button{
+
+width:100%;
+
+padding:10px;
+
+margin-top:20px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:5px;
+
+}
+
+#result{
+
+margin-top:20px;
+
+font-size:18px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="box">
+
+
+<h2>Automatic OT Calculator</h2>
+
+
+<input id="salary" placeholder="Monthly Salary">
+
+<select id="day">
+
+<option>Monday</option>
+<option>Tuesday</option>
+<option>Wednesday</option>
+<option>Thursday</option>
+<option>Friday</option>
+<option>Saturday</option>
+<option>Sunday</option>
+
+</select>
+
+
+
+<input type="time" id="in">
+
+<input type="time" id="out">
+
+
+
+<button onclick="calculateOT()">
+
+Calculate
+
+</button>
+
+
+
+<div id="result"></div>
+
+
+
+</div>
+
+
+
+<script>
+
+function calculateOT(){
+
+
+let salary = Number(document.getElementById("salary").value);
+
+let day = document.getElementById("day").value;
+
+let intime = document.getElementById("in").value;
+
+let outtime = document.getElementById("out").value;
+
+
+
+let inHour = new Date("2000-01-01 "+intime);
+
+let outHour = new Date("2000-01-01 "+outtime);
+
+
+
+let worked = (outHour-inHour)/1000/60/60;
+
+
+
+let ot=0;
+
+
+
+if(day=="Sunday"){
+
+ot=worked;
+
+}
+else{
+
+if(worked>9){
+
+ot=worked-9;
+}
+
+}
+
+
+let otRate = salary/30/9;
+
+let otPay = ot*otRate;
+
+
+
+document.getElementById("result").innerHTML=`
+
+<p>Worked Hours : ${worked.toFixed(2)}</p>
+
+<p>OT Hours : ${ot.toFixed(2)}</p>
+
+<p>OT Rate : ₹${otRate.toFixed(2)}</p>
+
+<h3>OT Pay : ₹${otPay.toFixed(2)}</h3>
+
+`;
+
+
+
+}
+
+</script>
+
+</body>
+</html>

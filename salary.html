@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Salary Calculator</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+background:#f3f4f6;
+
+}
+
+.box{
+
+width:450px;
+margin:50px auto;
+
+padding:25px;
+
+background:white;
+
+border-radius:10px;
+
+box-shadow:0 0 10px lightgray;
+
+}
+
+input{
+
+width:100%;
+padding:10px;
+
+margin-top:10px;
+
+box-sizing:border-box;
+
+}
+
+button{
+
+width:100%;
+
+padding:10px;
+
+margin-top:20px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}
+
+#result{
+
+margin-top:20px;
+
+font-size:18px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="box">
+
+
+<h2>Salary Calculator</h2>
+
+
+<input id="salary" placeholder="Monthly Salary">
+
+
+<input id="days" placeholder="Present Days">
+
+
+<input id="othours" placeholder="Overtime Hours">
+
+
+<input id="otrate" placeholder="OT Rate Per Hour">
+
+
+<button onclick="calculate()">
+
+Calculate
+
+</button>
+
+
+
+<div id="result"></div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+
+function calculate(){
+
+
+
+let salary=Number(document.getElementById("salary").value);
+
+let days=Number(document.getElementById("days").value);
+
+let othours=Number(document.getElementById("othours").value);
+
+let otrate=Number(document.getElementById("otrate").value);
+
+
+
+let daily=salary/30;
+
+
+let worksalary=daily*days;
+
+
+let otpay=othours*otrate;
+
+
+let total=worksalary+otpay;
+
+
+
+document.getElementById("result").innerHTML=`
+
+<p>Daily Salary : ₹${daily.toFixed(2)}</p>
+
+<p>Work Salary : ₹${worksalary.toFixed(2)}</p>
+
+<p>OT Pay : ₹${otpay.toFixed(2)}</p>
+
+<h3>Total Salary : ₹${total.toFixed(2)}</h3>
+
+`;
+
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
+
